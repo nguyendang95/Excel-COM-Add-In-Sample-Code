@@ -1,0 +1,51 @@
+HKCR
+{
+	ExcelAddIn.ThisAddIn.1 = s 'ThisAddIn class'
+	{
+		CLSID = s '{e9ff80fe-7162-4221-a1c7-dc5b41f2c335}'
+	}
+	ExcelAddIn.ThisAddIn = s 'ThisAddIn class'
+	{		
+		CurVer = s 'ExcelAddIn.ThisAddIn.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {e9ff80fe-7162-4221-a1c7-dc5b41f2c335} = s 'ThisAddIn class'
+		{
+			ProgID = s 'ExcelAddIn.ThisAddIn.1'
+			VersionIndependentProgID = s 'ExcelAddIn.ThisAddIn'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{26df424a-02b2-440d-a7ed-a6718bfed2e4}'
+			Version = s '1.0'
+		}
+	}
+}
+
+HKCU
+{
+    NoRemove Software
+    {
+        NoRemove Microsoft
+        {
+            NoRemove Office
+            {
+                NoRemove Excel
+                {
+                    NoRemove Addins
+                    {
+                        ExcelAddIn.ThisAddIn
+                        {
+                            val Description = s 'Sample Addin'
+                            val FriendlyName = s 'Sample Addin'
+                            val LoadBehavior = d 3
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

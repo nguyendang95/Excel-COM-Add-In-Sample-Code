@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="OnRibbonLoaded">
+  <ribbon>
+    <tabs>
+      <tab id="customTab" label="Excel AddIn">
+        <group id="customGroup" label="Group">
+          <button id="customButton"
+                  label="Click Me"
+                  getImage="GetImage"
+				  size="large"
+                  onAction="ButtonClicked" />
+        </group>
+      </tab>
+    </tabs>
+  </ribbon>
+</customUI>

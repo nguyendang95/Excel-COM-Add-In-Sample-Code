@@ -1,0 +1,123 @@
+// ExcelAddIn.idl : IDL source for ExcelAddIn
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (ExcelAddIn.tlb) and marshalling code.
+
+#include "olectl.h"
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(a90b8f06-8456-412c-a837-7c834af56842),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IThisAddIn : IDispatch
+{
+};
+[
+	object,
+	uuid(D251AC67-BB99-4F9F-878D-1C1AC5C31C38),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IRibbonCallback : IDispatch
+{
+	[id(42)] HRESULT ButtonClicked([in]IDispatch* ribbonControl);
+	[id(43)] HRESULT GetImage([in]IDispatch* ribbonControl, [out, retval]IPictureDisp** ppPicture);
+};
+[
+	object,
+	uuid(0ed156c3-8913-4e25-8304-007c364aa5cf),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface ITaskPane : IDispatch
+{
+};
+[
+	object,
+	uuid(fb23467d-e764-41e8-86a1-ebbf82535e18),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IExcelCustomTaskPane : IDispatch
+{
+};
+[
+	object,
+	uuid(fb49f83f-81f2-4c93-828d-985428a81df0),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IMyCustomTaskPane : IDispatch
+{
+};
+[
+	object,
+	uuid(625e44fc-6158-4c4e-a754-a709c12cd5c7),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IMyExcelCustomTaskPane : IDispatch
+{
+};
+
+[
+	uuid(26df424a-02b2-440d-a7ed-a6718bfed2e4),
+	version(1.0),
+]
+library ExcelAddInLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(e9ff80fe-7162-4221-a1c7-dc5b41f2c335)
+	]
+	coclass ThisAddIn
+	{
+		[default] interface IRibbonCallback;
+	};
+	[
+		uuid(3174918f-5bf0-495d-8c68-2c7086c35d30),
+		control
+	]
+	coclass TaskPane
+	{
+		[default] interface ITaskPane;
+	};
+	[
+		uuid(91612b79-adb5-4aff-938a-d2d4f99245e7)
+	]
+	coclass ExcelCustomTaskPane
+	{
+		[default] interface IExcelCustomTaskPane;
+	};
+	[
+		uuid(c630b734-e4af-4b4f-a641-18e58e300c82)
+	]
+	coclass MyCustomTaskPane
+	{
+		[default] interface IMyCustomTaskPane;
+	};
+	[
+		uuid(3e103957-b102-4ef4-87ba-133fde89acd1),
+		control
+	]
+	coclass MyExcelCustomTaskPane
+	{
+		[default] interface IMyExcelCustomTaskPane;
+	};
+};
+
+import "shobjidl.idl";
+import "shobjidl.idl";
+import "shobjidl.idl";
+import "shobjidl.idl";

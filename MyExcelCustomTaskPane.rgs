@@ -1,0 +1,32 @@
+HKCR
+{
+	ExcelAddIn.MyExcelCustomTaskPane.1 = s 'MyExcelCustomTaskPane class'
+	{
+		CLSID = s '{3e103957-b102-4ef4-87ba-133fde89acd1}'
+	}
+	ExcelAddIn.MyExcelCustomTaskPane = s 'MyExcelCustomTaskPane class'
+	{		
+		CurVer = s 'ExcelAddIn.MyExcelCustomTaskPane.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {3e103957-b102-4ef4-87ba-133fde89acd1} = s 'MyExcelCustomTaskPane class'
+		{
+			ProgID = s 'ExcelAddIn.MyExcelCustomTaskPane.1'
+			VersionIndependentProgID = s 'ExcelAddIn.MyExcelCustomTaskPane'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			ForceRemove Control
+			ForceRemove 'ToolboxBitmap32' = s '%MODULE%, 112'
+			MiscStatus = s '0'
+			{
+			    '1' = s '%OLEMISC%'
+			}
+			TypeLib = s '{26df424a-02b2-440d-a7ed-a6718bfed2e4}'
+			Version = s '1.0'
+		}
+	}
+}

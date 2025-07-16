@@ -1,0 +1,26 @@
+HKCR
+{
+	ExcelAddIn.MyCustomTaskPane.1 = s 'MyCustomTaskPane class'
+	{
+		CLSID = s '{c630b734-e4af-4b4f-a641-18e58e300c82}'
+	}
+	ExcelAddIn.MyCustomTaskPane = s 'MyCustomTaskPane class'
+	{		
+		CurVer = s 'ExcelAddIn.MyCustomTaskPane.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {c630b734-e4af-4b4f-a641-18e58e300c82} = s 'MyCustomTaskPane class'
+		{
+			ProgID = s 'ExcelAddIn.MyCustomTaskPane.1'
+			VersionIndependentProgID = s 'ExcelAddIn.MyCustomTaskPane'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{26df424a-02b2-440d-a7ed-a6718bfed2e4}'
+			Version = s '1.0'
+		}
+	}
+}
